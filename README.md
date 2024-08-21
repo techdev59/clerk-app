@@ -20,6 +20,59 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
+## Django Setup
+
+To set up the Django backend, follow these steps:
+
+1. **Install Dependencies**:
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+2. **Create Django Project**:
+    ```bash
+    django-admin startproject clerkapp
+    cd clerkapp
+    ```
+
+3. **Create Django App**:
+    ```bash
+    django-admin startapp home
+    ```
+
+4. **Configure Settings**:
+    Update your `settings.py` to include the necessary configurations for the `home` app and Clerk middleware.
+    ```python:backend/clerkapp/settings.py
+    ```
+
+5. **Define Models**:
+    Define your `User` and `Organization` models in `accounts/models.py`.
+    ```python:backend/accounts/models.py
+    ```
+
+6. **Create and Apply Migrations**:
+    ```bash
+    python manage.py makemigrations
+    python manage.py migrate
+    ```
+
+7. **Set Up Clerk Middleware**:
+    Implement the Clerk authentication middleware in `accounts/middleware.py`.
+    ```python:backend/accounts/middleware.py
+    ```
+
+8. **Update URLs**:
+    Update your `urls.py` to include the necessary routes.
+    ```python:backend/clerkapp/urls.py
+    startLine: 1
+    endLine: 22
+    ```
+
+9. **Run the Development Server**:
+    ```bash
+    python manage.py runserver
+    ```
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
